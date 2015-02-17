@@ -28,4 +28,3 @@ release/cache
 **/*.log.*
 **/*.css
 **/assets/
-**/baggins/index.html
