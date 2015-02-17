@@ -1,0 +1,29 @@
+{
+  "name": "pos-system-js",
+  "version": "0.0.0",
+  "description": "pos-system-js =============",
+  "main": "hello-world.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Waterstrong/pos-system-js.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/Waterstrong/pos-system-js/issues"
+  },
+  "dependencies": {
+    "express": "~4.11.2",
+    "mongoose": "~3.8.23",
+    "mongo": "~0.1.0",
+    "jasmine": "~2.2.1",
+    "karma": "~0.12.31",
+    "karma-chrome-launcher": "~0.1.7",
+    "jasmine-core": "~2.2.0",
+    "karma-jasmine": "~0.3.5",
+    "karma-cli": "0.0.4"
+  }
+}
