@@ -13,6 +13,8 @@ $ npm install -g express
 
 $ node hello-world.js
 
+$ npm install
+
 $ node server.js 
 $ curl http://localhost:3000
 
