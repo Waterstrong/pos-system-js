@@ -2,20 +2,19 @@
 var express = require('express');
 var app = express();
 
-var fs = require('fs');
+var dataProvider = require('./controllers/data-provider');
+
+var config = require('./config');
+
 app.get('/', function(request, response){
-    //var data = fs.readFileSync('resources/cart.txt', 'utf-8');
-    //response.send(data);
-    //response.send('Welcome to the Pos System.');
+    var message = "Welcome you to the " + config.SITE_NAME + ".       ——" + config.AUTHOR + "    | Now Time is " + (new Date()) ;
+    console.log(message);
 
-    fs.readFile('resources/cart.txt', 'utf-8', function(error, data) {
-        if(error) {
-            response.send(error);
-        } else {
-            response.send(data);
-        }
-    });
+    var result = dataProvider.read(config.FILE_PATH.cartFile);
 
+    console.log(result);
+
+    response.send(message);
 });
 
-app.listen(3000);
+app.listen(config.PORT);
