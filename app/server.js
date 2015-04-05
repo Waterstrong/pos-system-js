@@ -3,9 +3,14 @@ var express = require('express');
 var app = express();
 
 var dataProvider = require('./controllers/data-provider');
+
 var dataParser = require('./controllers/data-parser');
 var cartParser = require('./controllers/shopping-cart-parser');
+
 var shoppingCart = require('./controllers/shopping-cart');
+
+var discountPromtion = require('./controllers/discount-promotion');
+
 
 var config = require('./config');
 
@@ -19,7 +24,11 @@ app.get('/', function(request, response){
 
     shoppingCart.add(dataList);
 
-    console.log(shoppingCart.getCart());
+    var cartMapper = shoppingCart.calculate(discountPromtion);
+
+    console.log(cartMapper);
+
+    //console.log(shoppingCart.getCart());
     //console.log(dataList);
 
 
