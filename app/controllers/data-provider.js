@@ -4,7 +4,8 @@ var fs = require('fs');
 
 module.exports = {
     read: function (filePath) {
-        return fs.readFileSync(filePath, 'utf-8');
+        var data = fs.readFileSync(filePath, 'utf-8');
+        return data.split('\r\n');
 
         //fs.readFile('resources/cart.txt', 'utf-8', function(error, data) {
         //    if(error) {

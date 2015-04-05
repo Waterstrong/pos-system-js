@@ -8,7 +8,7 @@ module.exports = {
     SITE_NAME: 'POS System',
     DATABASE: '#',
     FILE_PATH : {
-        cartFile: 'resources/cart.txt',
+        cartFile: 'resources/shopping-cart.txt',
         itemListFile: 'resources/item-list.txt',
         discountPromotionFile: 'resources/discount-promotion.txt',
         fullCashBackPromotionFile: 'resources/full-case-back-promotion.txt',
