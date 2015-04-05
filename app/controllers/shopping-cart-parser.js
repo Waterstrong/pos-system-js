@@ -1,5 +1,7 @@
 'user strict';
 
+/* parse the shopping-cart file data */
+
 var format = require('../utils/format');
 
 module.exports = {

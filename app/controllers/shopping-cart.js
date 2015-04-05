@@ -1,5 +1,7 @@
 'use strict';
 
+/* shopping cart arrange the goods items and calculate the promotion subtotal */
+
 var goodsList = require('./goods-list');
 
 var cartMapper = {};

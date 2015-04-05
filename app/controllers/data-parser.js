@@ -1,5 +1,7 @@
 'use strict';
 
+/* map to parse data from lines */
+
 module.exports = {
     map: function(lines, parser) {
         if(!lines || !parser) return null;

@@ -1,5 +1,7 @@
 'use strict';
 
+/* provide data from file stream */
+
 var fs = require('fs');
 
 module.exports = {
