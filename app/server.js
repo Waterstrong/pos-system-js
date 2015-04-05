@@ -5,6 +5,7 @@ var app = express();
 var dataProvider = require('./controllers/data-provider');
 var dataParser = require('./controllers/data-parser');
 var cartParser = require('./controllers/shopping-cart-parser');
+var shoppingCart = require('./controllers/shopping-cart');
 
 var config = require('./config');
 
@@ -15,7 +16,11 @@ app.get('/', function(request, response){
     var result = dataProvider.read(config.FILE_PATH.cartFile);
 
     var dataList = dataParser.map(result, cartParser);
-    console.log(dataList);
+
+    shoppingCart.add(dataList);
+
+    console.log(shoppingCart.getCart());
+    //console.log(dataList);
 
 
     //console.log(result);
