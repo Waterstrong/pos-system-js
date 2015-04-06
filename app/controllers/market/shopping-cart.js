@@ -4,11 +4,6 @@
 
 var goodsList = require('./goods-list');
 
-//var cartMapper = {};
-//var subTotalMapper = {};
-//var beforePromotionTotal;
-//var afterPromotionTotal;
-
 var self = {
     cartMapper: {},
     //subTotalMapper: {},

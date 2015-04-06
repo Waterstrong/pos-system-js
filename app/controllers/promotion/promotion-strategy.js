@@ -9,14 +9,14 @@ var self = {
 };
 
 module.exports = {
-    attach: function(promotionList) {
-        if(!promotionList) return;
-        promotionList.forEach(function(promotion) {
-            var existPromotions = self.promotionsMapper[promotion.barcode];
+    attach: function(promotionItems) {
+        if(!promotionItems) return;
+        promotionItems.forEach(function(promotionItem) {
+            var existPromotions = self.promotionsMapper[promotionItem.barcode];
             if(!existPromotions) {
-                self.promotionsMapper[promotion.barcode] = [];
+                self.promotionsMapper[promotionItem.barcode] = [];
             }
-            self.promotionsMapper[promotion.barcode].push(promotion);
+            self.promotionsMapper[promotionItem.barcode].push(promotionItem.promotion);
         });
     },
     calculate: function(item) {
