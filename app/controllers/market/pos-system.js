@@ -13,7 +13,7 @@ var discountPromotion = require('../promotion/discount-promotion');
 
 module.exports = {
     run: function(config) {
-
+        if(!config) return undefined;
         // get the cart data
         var cartData = dataParser.map(dataProvider.read(config.FILE_PATH.cartFile), cartParser);
         shoppingCart.add(cartData);

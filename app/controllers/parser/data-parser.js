@@ -4,7 +4,7 @@
 
 module.exports = {
     map: function(lines, parser) {
-        if(!lines || !parser) return null;
+        if(!lines || !parser) return undefined;
         var dataList = [];
         lines.forEach(function(line) {
             dataList.push(parser.parse(line));

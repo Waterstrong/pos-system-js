@@ -9,11 +9,15 @@ module.exports = {
         var data = fs.readFileSync(filePath, 'utf-8');
         return data.split('\r\n');
 
-        //fs.readFile('resources/cart.txt', 'utf-8', function(error, data) {
+        // TODO: handle exception. if not sync mode, how to provider data
+
+        //fs.readFile(filePath, 'utf-8', function(error, data) {
         //    if(error) {
-        //        response.send(error);
+        //        console.log(error);
+        //        return undefined;
         //    } else {
-        //        response.send(data);
+        //        console.log(data);
+        //        return data.split('\r\n');
         //    }
         //});
     }

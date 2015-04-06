@@ -22,6 +22,7 @@ module.exports = {
     //    return cartMapper;
     //},
     add: function(items) {
+        if(!items) return;
         items.forEach(function(item) {
             var existItem = cartMapper[item.barcode];
             if(existItem) {
@@ -34,6 +35,7 @@ module.exports = {
         });
     },
     calculate: function(promotionStrategy) {
+        if(!promotionStrategy) return;
         beforePromotionTotal = 0;
         afterPromotionTotal = 0;
         for(var barcode in cartMapper) {
