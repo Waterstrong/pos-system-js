@@ -17,6 +17,7 @@ module.exports = {
         // get the cart data
         var cartData = dataParser.map(dataProvider.read(config.FILE_PATH.cartFile), cartParser);
         shoppingCart.add(cartData);
+        discountPromotion.setDiscountRate(0.75);
         var cartMapper = shoppingCart.calculate(discountPromotion);
 
         console.log(cartMapper);
