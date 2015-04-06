@@ -16,7 +16,10 @@ module.exports = {
         return self.discountRate;
     },
     calculate: function(item) {
-        if(!item) return undefined;
+        if(!item || self.discountRate < 0 || self.discountRate > 1) {
+            console.log("discount-promotion: item is undefined or rate is illegal.");
+            return undefined;
+        }
         var newItem = instance.clone(item); // TODO: how to solve the ref
         newItem.price = item.price * self.discountRate;
         return newItem;

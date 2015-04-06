@@ -51,8 +51,8 @@ module.exports = {
             // calculate all the promotions in sequence
             var newItem = promotionStrategy.calculate(item);
             // this subtotal is after promotion
-            self.cartMapper[barcode].subTotal = newItem.amount * newItem.price;
-            self.afterPromotionTotal += self.cartMapper[barcode].subTotal;
+            self.cartMapper[barcode].subtotal = newItem.amount * newItem.price;
+            self.afterPromotionTotal += self.cartMapper[barcode].subtotal;
 
             //self.subTotalMapper[barcode] = newItem.amount * newItem.price;
         }
