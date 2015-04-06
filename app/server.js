@@ -2,39 +2,22 @@
 var express = require('express');
 var app = express();
 
-var dataProvider = require('./controllers/data-provider');
-
-var dataParser = require('./controllers/data-parser');
-var cartParser = require('./controllers/shopping-cart-parser');
-
-var shoppingCart = require('./controllers/shopping-cart');
-
-var discountPromtion = require('./controllers/discount-promotion');
-
+var posSystem = require('./controllers/market/pos-system');
 
 var config = require('./config');
 
+var copyright = "=========== Welcome to the " + config.SITE_NAME + " ===========\n\r© Copyright 2015-2016 —— " +
+    config.AUTHOR + "   "+ config.EMAIL +"\n\rNow Time: " + (new Date()) +"\n\r";
+
+console.log(copyright);
+
 app.get('/', function(request, response){
-    var message = "Welcome you to the " + config.SITE_NAME + ".\n\r       ——" + config.AUTHOR + "    | Now Time is " + (new Date()) +"\n\r";
-    console.log(message);
 
-    var result = dataProvider.read(config.FILE_PATH.cartFile);
-
-    var dataList = dataParser.map(result, cartParser);
-
-    shoppingCart.add(dataList);
-
-    var cartMapper = shoppingCart.calculate(discountPromtion);
-
-    console.log(cartMapper);
-
-    //console.log(shoppingCart.getCart());
-    //console.log(dataList);
-
+    var result = posSystem.run(config);
 
     //console.log(result);
 
-    response.send(message);
+    response.send(copyright + "\n\r");
 });
 
 app.listen(config.PORT);

@@ -5,7 +5,7 @@ module.exports = {
     PORT: 3000,
     AUTHOR: 'Waterstrong',
     EMAIL: 'sqlin@thoughtworks.com',
-    SITE_NAME: 'POS System',
+    SITE_NAME: 'POS System Demo',
     DATABASE: '#',
     FILE_PATH : {
         cartFile: 'resources/shopping-cart.txt',
