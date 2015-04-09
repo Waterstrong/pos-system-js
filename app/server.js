@@ -8,8 +8,9 @@ var config = require('./config');
 
 var copyright = "=========== Welcome to the " + config.SITE_NAME + " ===========\n\r© Copyright 2015-2016 —— " +
     config.AUTHOR + "   "+ config.EMAIL +"\n\rNow Time: " + (new Date()) +"\n\r";
+var instruction = "         Please Go to http://localhost:" + config.PORT;
 
-console.log(copyright);
+console.log(copyright + instruction);
 
 app.get('/', function(request, response){
 

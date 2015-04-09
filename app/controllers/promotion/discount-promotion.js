@@ -12,7 +12,7 @@ module.exports = {
     setDiscountRate: function(discountRate) {
         self.discountRate = discountRate;
     },
-    getDiscontRate: function() {
+    getDiscountRate: function() {
         return self.discountRate;
     },
     calculate: function(item) {
