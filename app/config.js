@@ -11,7 +11,7 @@ module.exports = {
         cartFile: 'resources/shopping-cart.txt',
         itemListFile: 'resources/item-list.txt',
         discountPromotionFile: 'resources/discount-promotion.txt',
-        fullCashBackPromotionFile: 'resources/full-case-back-promotion.txt',
+        fullCashBackPromotionFile: 'resources/full-cash-back-promotion.txt',
         secondHalfPricePromotionFile: 'resources/second-half-price-promotion.txt'
     }
 };
