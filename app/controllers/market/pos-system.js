@@ -15,7 +15,8 @@ var goodsList = require('./goods-list');
 
 var shoppingCart = require('./shopping-cart');
 
-//var discountPromotion = require('../promotion/discount-promotion');
+var kkPos = require('./kk-pos');
+
 var promotionStrategy = require('../promotion/promotion-strategy');
 
 module.exports = {
@@ -64,9 +65,7 @@ module.exports = {
         promotionStrategy.attach(fullAmountPromotionData);
         promotionStrategy.attach(fullCashBackPromotionData);
 
-        var cartMapper = shoppingCart.calculate(promotionStrategy);
-
-        console.log(cartMapper);
+        kkPos.applyPrintSettlement(shoppingCart, promotionStrategy);
 
         return "hahaha";
     }
