@@ -4,24 +4,28 @@
 
 var instance = require('../../utils/instance');
 
-var self = {
-    fullCash: 0,
-    cashBack: 0
-};
+// how to solve class private variable problem ???
+
+//var self = {
+//    fullCash: 0,
+//    cashBack: 0
+//};
 
 module.exports = {
+    fullCash: 0,
+    cashBack: 0,
     setFullCashBack: function(fullCash, cashBack) {
-        self.fullCash = fullCash;
-        self.cashBack = cashBack;
+        this.fullCash = fullCash;
+        this.cashBack = cashBack;
     },
     calculate: function(item) {
-        if(!item || self.fullCash < 0 || self.cashBack < 0 || self.cashBack > self.fullCash) {
+        if(!item || this.fullCash < 0 || this.cashBack < 0 || this.cashBack > this.fullCash) {
             console.log("full-cash-back-promotion: item is undefined or fullCash|cashBack is illegal.");
             return undefined;
         }
         var totalCost = item.price * item.amount;
-        if(totalCost >= self.fullCash) {
-            totalCost -= self.cashBack;
+        if(totalCost >= this.fullCash) {
+            totalCost -= this.cashBack;
         }
         var newItem = instance.clone(item);
         newItem.price = totalCost / item.amount;

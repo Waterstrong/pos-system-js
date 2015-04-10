@@ -14,12 +14,12 @@ module.exports = {
 
         for(var key in cartMapper) {
             var item = cartMapper[key];
-            console.log(item.barcode + "   " + item.amount + "      " + item.price + "    " + item.subtotal);
+            console.log(item.barcode + "    " + item.amount + "        " + item.price + "       " + item.subtotal);
         }
         var beforePromotion = shoppingCart.getBeforePromotionTotal();
         var afterPromotion = shoppingCart.getAfterPromotionTotal();
         console.log('总计金额（优惠前  优惠后  优惠差价）');
-        console.log(afterPromotion+"    "+beforePromotion+"  "+afterPromotion+"  "+(beforePromotion-afterPromotion));
+        console.log(afterPromotion+"        "+beforePromotion+"      "+afterPromotion+"      "+(beforePromotion-afterPromotion));
 
     }
 };
