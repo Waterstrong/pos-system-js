@@ -11,7 +11,6 @@ module.exports = {
         var splitResult = line.split(':'); // parse the line as barcode : discount
         if(splitResult.length != 2) return undefined;
         var discountRate = format.toFloat(splitResult[1]);
-        if(discountRate < 0 || discountRate > 100) return undefined;
         var newDiscountPromotion = instance.clone(discountPromotion);
         newDiscountPromotion.setDiscountRate(discountRate/100);
         return {
