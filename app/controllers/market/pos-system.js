@@ -51,19 +51,9 @@ module.exports = {
         console.log(fullCashBackPromotionData);
 
 
-        //discountPromotion.setDiscountRate(0.75);
-        //var promotionData = [{
-        //        barcode: 'ITEM000001',
-        //        promotion: discountPromotion
-        //    }, {
-        //        barcode: 'ITEM000005',
-        //        promotion: discountPromotion
-        //    }
-        //];
-
         promotionStrategy.attach(discountPromotionData);
         promotionStrategy.attach(fullAmountPromotionData);
-        promotionStrategy.attach(fullCashBackPromotionData);
+        //promotionStrategy.attach(fullCashBackPromotionData);
 
         kkPos.applyPrintSettlement(shoppingCart, promotionStrategy);
 

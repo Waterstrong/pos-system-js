@@ -6,7 +6,6 @@ var instance = require('../../utils/instance');
 
 var format = require('../../utils/format');
 
-// how to solve class private variable problem ???
 
 //var self = {
 //    fullAmount: 0,

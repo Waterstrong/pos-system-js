@@ -7,7 +7,7 @@ module.exports = {
         return isNaN(val) ? undefined : (val <= 0 ? undefined : val);
     },
     toFloat: function(arg) {
-        if(!arg) return undefined;
+        if(arg === undefined) return undefined;
         var val = parseFloat(arg, 10);
         //ENOB = 2,
         //tempNum = Math.pow(10, ENOB);

@@ -11,7 +11,7 @@ var instance = require('../../utils/instance');
 //};
 
 module.exports = {
-    discountRate: 1,
+    //discountRate: 1,
     setDiscountRate: function(discountRate) {
         this.discountRate = discountRate;
     },
