@@ -2,13 +2,14 @@
 
 /* shopping cart arrange the goods items and calculate the promotion subtotal */
 
-var goodsList = require('./goods-list');
+var instance = require('../../utils/instance');
 
 var self = {
     cartMapper: {},
     //subTotalMapper: {},
     beforePromotionTotal: 0,
-    afterPromotionTotal: 0
+    afterPromotionTotal: 0,
+    goodsList: {}
 };
 module.exports = {
     getBeforePromotionTotal: function() {
@@ -20,18 +21,25 @@ module.exports = {
     //getSubtotal: function(barcode) {
     //    return self.subTotalMapper[barcode];
     //},
-    //getCartMapper: function() {
-    //    return self.cartMapper;
-    //},
+    getCartMapper: function() {
+        return self.cartMapper;
+    },
+    setGoosdList: function(goodsList) {
+        self.goodsList = goodsList;
+    },
     add: function(items) {
+        if(!self.goodsList.getGoods) {
+            console.log("goods list must be set for shopping cart.");
+            return undefined;
+        }
         if(!items) return;
         items.forEach(function(item) {
             var existItem = self.cartMapper[item.barcode];
             if(existItem) {
                 existItem.amount += item.amount;
             } else {
-                existItem = item;
-                existItem.price = 40;//goodsList.getGoods(item.barcode).getPrice();
+                existItem = instance.clone(item);
+                existItem.price = self.goodsList.getGoods(item.barcode).price;
             }
             self.cartMapper[item.barcode] = existItem;
         });
