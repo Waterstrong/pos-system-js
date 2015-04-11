@@ -19,9 +19,7 @@ DiscountPromotion.prototype.getDiscountRate = function() {
 
 DiscountPromotion.prototype.calculate = function(item) {
     if(item == undefined || this.discountRate == undefined || this.discountRate < 0 || this.discountRate > 1) {
-        console.log("discount-promotion: item is undefined or rate is illegal.");
         throw new Error("discount-promotion: item is undefined or rate is illegal.");
-        //return undefined;
     }
     var newItem = instance.clone(item); // TODO: how to solve the ref
     newItem.price = item.price * this.discountRate;
