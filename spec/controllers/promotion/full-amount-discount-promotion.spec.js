@@ -10,8 +10,8 @@ describe('FullAmountDiscountPromotion', function(){
     });
 
     it('should get right full amount and discount rate when given init value', function(){
-        expect(fullAmountDiscountPromotion.getFullAmount()).toEqual(2);
-        expect(fullAmountDiscountPromotion.getDiscountRate()).toEqual(0.5);
+        expect(fullAmountDiscountPromotion.fullAmount).toEqual(2);
+        expect(fullAmountDiscountPromotion.discountRate).toEqual(0.5);
     });
 
     it('should get right subtotal when given the general item', function(){

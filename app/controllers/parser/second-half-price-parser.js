@@ -2,15 +2,15 @@
 
 /* parse the second-half-price file data */
 
-var fullAmountDiscountPromotion = require('../promotion/full-amount-discount-promotion');
-var instance = require('../../utils/instance');
+var FullAmountDiscountPromotion = require('../promotion/full-amount-discount-promotion');
+
 module.exports = {
     parse: function(line) {
         if (!line) return undefined;
-        var newPromotion = new fullAmountDiscountPromotion(2, 0.5);
+        var fullAmountDiscountPromotion = new FullAmountDiscountPromotion(2, 0.5);
         return {
             barcode: line,
-            promotion: newPromotion
+            promotion: fullAmountDiscountPromotion
         };
     }
 };

@@ -2,7 +2,7 @@
 
 /* parse the shopping-cart file data */
 
-var format = require('../../utils/format');
+var Format = require('../../utils/format');
 
 module.exports = {
     parse: function(line) {
@@ -11,7 +11,7 @@ module.exports = {
         if(splitResult.length !== 1 && splitResult.length !== 2) return undefined;
         var amount = 1;
         if(splitResult.length === 2) {
-            amount = format.toInt(splitResult[1]);
+            amount = Format.toInt(splitResult[1]);
         }
         if(!amount) return undefined;
         return {

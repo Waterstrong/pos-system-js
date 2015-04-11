@@ -2,7 +2,7 @@
 
 /* make xxx discount promotion */
 
-var instance = require('../../utils/instance');
+var Instance = require('../../utils/instance');
 
 
 function DiscountPromotion(discountRate) {
@@ -21,7 +21,7 @@ DiscountPromotion.prototype.calculate = function(item) {
     if(item == undefined || this.discountRate == undefined || this.discountRate < 0 || this.discountRate > 1) {
         throw new Error("discount-promotion: item is undefined or rate is illegal.");
     }
-    var newItem = instance.clone(item); // TODO: how to solve the ref
+    var newItem = Instance.clone(item); // TODO: how to solve the ref
     newItem.price = item.price * this.discountRate;
     return newItem;
 };

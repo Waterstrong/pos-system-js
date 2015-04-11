@@ -2,7 +2,7 @@
 
 /* shopping cart arrange the goods items and calculate the promotion subtotal */
 
-var instance = require('../../utils/instance');
+var Instance = require('../../utils/instance');
 
 var self = {
     cartMapper: {},
@@ -38,7 +38,7 @@ module.exports = {
             if(existItem) {
                 existItem.amount += item.amount;
             } else {
-                existItem = instance.clone(item);
+                existItem = Instance.clone(item);
                 existItem.price = self.goodsList.getGoods(item.barcode).price;
             }
             self.cartMapper[item.barcode] = existItem;

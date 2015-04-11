@@ -5,7 +5,7 @@
 // but how to use singleton
 
 
-var instance = require('../../utils/instance');
+var Instance = require('../../utils/instance');
 
 var self = {
     goodsMapper: {}
@@ -18,7 +18,7 @@ module.exports = {
     add: function(items) {
         if(!items) return undefined;
         items.forEach(function(item){
-            self.goodsMapper[item.barcode] = instance.clone(item);
+            self.goodsMapper[item.barcode] = Instance.clone(item);
         });
     }
 };
