@@ -7,7 +7,7 @@ var dataProvider = require('../../services/data-provider');
 var dataParser = require('../parser/data-parser');
 var goodsItemParser = require('../parser/goods-item-parser');
 var cartParser = require('../parser/shopping-cart-parser');
-var discountParser = require('../parser/discount-parser');
+var DiscountParser = require('../parser/discount-parser');
 var secondHalfPriceParser = require('../parser/second-half-price-parser');
 var fullCashBackParser = require('../parser/full-cash-back-parser');
 
@@ -38,7 +38,7 @@ module.exports = {
         console.log('This is the new cart data: ');
         console.log(shoppingCart.getCartMapper());
 
-        var discountPromotionData = dataParser.map(dataProvider.read(config.FILE_PATH.discountPromotionFile), discountParser);
+        var discountPromotionData = dataParser.map(dataProvider.read(config.FILE_PATH.discountPromotionFile), new DiscountParser());
         console.log('This is the discount promotion data: ');
         console.log(discountPromotionData);
 

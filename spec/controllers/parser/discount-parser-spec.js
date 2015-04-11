@@ -1,5 +1,10 @@
 describe("DiscountParser", function() {
-    var discountParser = require('../../../app/controllers/parser/discount-parser');
+    var DiscountParser = require('../../../app/controllers/parser/discount-parser');
+
+    var discountParser;
+    beforeEach(function(){
+        discountParser = new DiscountParser();
+    });
 
     it("should be able to parse when given a discount format string", function() {
         var result = discountParser.parse('ITEM001:25');
