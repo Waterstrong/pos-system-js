@@ -3,7 +3,7 @@
 /* parse the discount-promotion file data */
 
 var format = require('../../utils/format');
-var discountPromotion = require('../promotion/discount-promotion');
+var DiscountPromotion = require('../promotion/discount-promotion');
 var instance = require('../../utils/instance');
 
 function DiscountParser() {
@@ -15,11 +15,10 @@ DiscountParser.prototype.parse = function(line) {
     if(splitResult.length != 2) return undefined;
     var discountRate = format.toFloat(splitResult[1]);
     if(discountRate === undefined) return undefined;
-    var newDiscountPromotion = instance.clone(discountPromotion);
-    newDiscountPromotion.setDiscountRate(discountRate/100);
+    var discountPromotion = new DiscountPromotion(discountRate/100);
     return {
         barcode: splitResult[0],
-        promotion: newDiscountPromotion
+        promotion: discountPromotion
     }
 };
 

@@ -4,27 +4,28 @@
 
 var instance = require('../../utils/instance');
 
-// how to solve class private variable problem ???
 
-//var self = {
-//    discountRate: 1
-//};
+function DiscountPromotion(discountRate) {
+    this.discountRate = discountRate;
+}
 
-module.exports = {
-    //discountRate: 1,
-    setDiscountRate: function(discountRate) {
-        this.discountRate = discountRate;
-    },
-    getDiscountRate: function() {
-        return this.discountRate;
-    },
-    calculate: function(item) {
-        if(!item || this.discountRate < 0 || this.discountRate > 1) {
-            console.log("discount-promotion: item is undefined or rate is illegal.");
-            return undefined;
-        }
-        var newItem = instance.clone(item); // TODO: how to solve the ref
-        newItem.price = item.price * this.discountRate;
-        return newItem;
-    }
+DiscountPromotion.prototype.setDiscountRate = function(discountRate) {
+    this.discountRate = discountRate;
 };
+
+DiscountPromotion.prototype.getDiscountRate = function() {
+    return this.discountRate;
+};
+
+DiscountPromotion.prototype.calculate = function(item) {
+    if(item == undefined || this.discountRate == undefined || this.discountRate < 0 || this.discountRate > 1) {
+        console.log("discount-promotion: item is undefined or rate is illegal.");
+        throw new Error("discount-promotion: item is undefined or rate is illegal.");
+        //return undefined;
+    }
+    var newItem = instance.clone(item); // TODO: how to solve the ref
+    newItem.price = item.price * this.discountRate;
+    return newItem;
+};
+
+module.exports = DiscountPromotion;
