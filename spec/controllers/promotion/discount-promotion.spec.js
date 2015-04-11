@@ -1,3 +1,5 @@
+'use strict';
+
 describe("DiscountPromotion", function(){
     var DiscountPromotion = require('../../../app/controllers/promotion/discount-promotion');
     var discountPromotion;

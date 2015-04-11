@@ -7,8 +7,7 @@ var instance = require('../../utils/instance');
 module.exports = {
     parse: function(line) {
         if (!line) return undefined;
-        var newPromotion = instance.clone(fullAmountDiscountPromotion);
-        newPromotion.setAmountDiscount(2, 0.5);
+        var newPromotion = new fullAmountDiscountPromotion(2, 0.5);
         return {
             barcode: line,
             promotion: newPromotion
