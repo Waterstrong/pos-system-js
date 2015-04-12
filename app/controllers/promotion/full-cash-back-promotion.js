@@ -10,14 +10,15 @@ function FullCashBackPromotion(fullCash, cashBack) {
 }
 
 FullCashBackPromotion.prototype.calculate = function(item) {
-    if(!item || this.fullCash === undefined || this.fullCash < 0 ||
-        this.cashBack === undefined || this.cashBack < 0 || this.cashBack > this.fullCash) {
+    var self = this;
+    if(!item || self.fullCash === undefined || self.fullCash < 0 ||
+        self.cashBack === undefined || self.cashBack < 0 || self.cashBack > self.fullCash) {
         throw new Error('full-cash-back-promotion: item is undefined or fullCash|cashBack is illegal.');
         //return undefined;
     }
     var totalCost = item.price * item.amount;
-    if(totalCost >= this.fullCash) {
-        totalCost -= this.cashBack;
+    if(totalCost >= self.fullCash) {
+        totalCost -= self.cashBack;
     }
     var newItem = Instance.clone(item);
     newItem.price = totalCost / item.amount;

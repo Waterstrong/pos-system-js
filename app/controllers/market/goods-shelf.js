@@ -1,6 +1,6 @@
 'use strict';
 
-/* contain goods(barcode, price, etc) list*/
+/* contain goods(barcode, price, etc) list, this is the goods shelf */
 
 // but how to use singleton
 

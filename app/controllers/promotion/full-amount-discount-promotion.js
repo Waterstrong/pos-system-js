@@ -12,13 +12,14 @@ function FullAmountDiscountPromotion(fullAmount, discountRate){
 }
 
 FullAmountDiscountPromotion.prototype.calculate = function(item) {
-    if(item === undefined || this.fullAmount === undefined || this.fullAmount <= 0 ||
-        this.discountRate === undefined || this.discountRate < 0 || this.discountRate > 1) {
+    var self = this;
+    if(item === undefined || self.fullAmount === undefined || self.fullAmount <= 0 ||
+        self.discountRate === undefined || self.discountRate < 0 || self.discountRate > 1) {
         throw new Error('full-amount-discount-promotion: item is undefined or fullAmount|discountRate is illegal.');
         //return undefined;
     }
-    var discountAmount = Format.toInt(item.amount / this.fullAmount);
-    var subtotal = item.price * this.discountRate * discountAmount + (item.amount - discountAmount) * item.price;
+    var discountAmount = Format.toInt(item.amount / self.fullAmount);
+    var subtotal = item.price * self.discountRate * discountAmount + (item.amount - discountAmount) * item.price;
     var newItem = Instance.clone(item);
     newItem.price = subtotal / item.amount;
     return newItem;

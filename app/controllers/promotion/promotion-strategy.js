@@ -4,16 +4,13 @@
 
 var Instance = require('../../utils/instance');
 
-var self = {
-    promotionsMapper: {}
-};
-
 
 function PromotionStrategy() {
-
+    this.promotionsMapper = {};
 }
 
 PromotionStrategy.prototype.attach = function(promotionItems) {
+    var self = this;
     if(!promotionItems) return;
     promotionItems.forEach(function(promotionItem) {
         var existPromotions = self.promotionsMapper[promotionItem.barcode];
@@ -25,6 +22,7 @@ PromotionStrategy.prototype.attach = function(promotionItems) {
 };
 
 PromotionStrategy.prototype.calculate = function(item) {
+    var self = this;
     if(!item) {
         console.log("promotion-strategy: item is undefined.");
         return undefined;

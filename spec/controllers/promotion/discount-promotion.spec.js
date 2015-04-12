@@ -6,7 +6,6 @@ describe("DiscountPromotion", function(){
     var itemForTest;
     var errorMessage;
     beforeEach(function(){
-        discountPromotion = new DiscountPromotion(5);
         itemForTest = {
             barcode: 'ITEM00001',
             price: 100
@@ -15,24 +14,26 @@ describe("DiscountPromotion", function(){
     });
 
     it("should get discount rate when given discount value", function() {
+        discountPromotion = new DiscountPromotion(5);
         expect(discountPromotion.getDiscountRate()).toEqual(5);
     });
 
     it('should get exception when given nothing', function() {
+        discountPromotion = new DiscountPromotion();
         expect(function(){
-            discountPromotion.calculate();
+            discountPromotion.calculate(itemForTest);
         }).toThrowError(errorMessage);
     });
 
     it('should get exception when given a discount rate more than one', function(){
-        discountPromotion.setDiscountRate(1.1);
+        discountPromotion = new DiscountPromotion(1.1);
         expect(function(){
             discountPromotion.calculate(itemForTest);
         }).toThrowError(errorMessage);
     });
     
     it('should get exception when given a discount rate less than zero', function(){
-       discountPromotion.setDiscountRate(-0.1);
+        discountPromotion = new DiscountPromotion(-0.1);
        expect(function(){
             discountPromotion.calculate(itemForTest);
        }).toThrowError(errorMessage);
@@ -40,7 +41,7 @@ describe("DiscountPromotion", function(){
 
 
     it('should get right item price when given a discount', function(){
-        discountPromotion.setDiscountRate(0.8);
+        discountPromotion = new DiscountPromotion(0.8);
         var newItem = discountPromotion.calculate(itemForTest);
         expect(newItem.price).toEqual(80);
     });
