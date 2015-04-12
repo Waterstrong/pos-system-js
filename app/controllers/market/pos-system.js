@@ -17,7 +17,7 @@ var shoppingCart = require('./shopping-cart');
 
 var kkPos = require('./kk-pos');
 
-var promotionStrategy = require('../promotion/promotion-strategy');
+var PromotionStrategy = require('../promotion/promotion-strategy');
 
 module.exports = {
     run: function(config) {
@@ -50,6 +50,8 @@ module.exports = {
         console.log('This is the full cash back promotion data: ');
         console.log(fullCashBackPromotionData);
 
+
+        var promotionStrategy = new PromotionStrategy();
 
         promotionStrategy.attach(discountPromotionData);
         promotionStrategy.attach(fullAmountPromotionData);
