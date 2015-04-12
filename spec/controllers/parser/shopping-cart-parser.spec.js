@@ -13,10 +13,10 @@ describe('ShoppingCartParser', function(){
         expect(item.amount).toEqual(1);
     });
 
-    it('should get undefine when given non-number amount', function(){
-        var item = ShoppingCartParser.parse('ITEM0003-fd5');
-        expect(item).toEqual(undefined);
-    });
+    //it('should get undefine when given non-number amount', function(){
+    //    var item = ShoppingCartParser.parse('ITEM0003-fd5');
+    //    expect(item).toEqual(undefined);
+    //});
 
     it('should able to get correct amount when given a float amount', function(){
         var item = ShoppingCartParser.parse('ITEM0004-3.5');
