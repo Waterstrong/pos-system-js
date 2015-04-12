@@ -4,12 +4,12 @@
 
 var Instance = require('../../utils/instance');
 
-function FullCashBackPromoiton(fullCash, cashBack) {
+function FullCashBackPromotion(fullCash, cashBack) {
     this.fullCash = fullCash;
     this.cashBack = cashBack;
 }
 
-FullCashBackPromoiton.prototype.calculate = function(item) {
+FullCashBackPromotion.prototype.calculate = function(item) {
     if(!item || this.fullCash === undefined || this.fullCash < 0 ||
         this.cashBack === undefined || this.cashBack < 0 || this.cashBack > this.fullCash) {
         throw new Error('full-cash-back-promotion: item is undefined or fullCash|cashBack is illegal.');
@@ -24,4 +24,4 @@ FullCashBackPromoiton.prototype.calculate = function(item) {
     return newItem;
 };
 
-module.exports = FullCashBackPromoiton;
+module.exports = FullCashBackPromotion;
